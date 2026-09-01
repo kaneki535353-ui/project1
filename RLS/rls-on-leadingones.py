@@ -1,0 +1,39 @@
+import matplotlib.pyplot as plt
+
+from rls import rls_leadingones
+
+n_values=[10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+
+average_runtime_n2=[]
+
+for n in n_values:
+    runtimes=[]
+    max_iteration= n * n
+    #run 20 times
+    for run in range(20):
+        iteration, success=rls_leadingones(n, max_iteration)
+        if success:
+            runtimes.append(iteration)
+            
+#calculate average runtime
+    if len(runtimes)>0:
+            average_runtime=sum(runtimes)/len(runtimes)
+    else:
+            average_runtime=None
+
+    print(
+         "n=",n,
+         "Successful runs=",len(runtimes),
+         "Average runtime=",average_runtime
+    )
+
+    average_runtime_n2.append(average_runtime)
+
+#plot 
+plt.plot(n_values, average_runtime_n2)
+
+plt.xlabel("n")
+plt.ylabel("Average runtime")
+
+plt.title("Random Local Search on LeadingOnes")
+plt.show()
