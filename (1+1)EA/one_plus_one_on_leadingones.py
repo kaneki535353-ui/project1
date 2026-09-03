@@ -8,7 +8,7 @@ average_runtime_n2=[]
 
 for n in n_values:
     runtimes=[]
-    max_iteration= n * n
+    max_iteration= n ** 3
     #run 20 times
     for run in range(20):
         iteration, success=one_plus_one_ea_leadingones(n, max_iteration)

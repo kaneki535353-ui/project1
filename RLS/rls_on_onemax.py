@@ -1,4 +1,3 @@
-import math
 import matplotlib.pyplot as plt
 
 from rls import rls_onemax 
@@ -9,7 +8,7 @@ average_runtime_nlogn=[]
 
 for n in n_values:
     runtimes=[]
-    max_iteration= int(n * math.log(n))
+    max_iteration= n ** 3
     #run 20 times
     for run in range(20):
         iteration, success=rls_onemax(n, max_iteration)
