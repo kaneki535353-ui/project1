@@ -6,6 +6,7 @@ n=100
 
 c_values = [0.1, 0.2, 0.5, 1, 1.5, 2, 2.5, 3]
 
+all_runtimes=[]
 average_runtimes=[]
 
 for c in c_values:
@@ -30,6 +31,7 @@ for c in c_values:
     )
 
     average_runtimes.append(average_runtime)
+    all_runtimes.append(runtimes)
 
 #plot 
 plt.plot(c_values, average_runtimes)
@@ -38,4 +40,11 @@ plt.xlabel("c")
 plt.ylabel("Average runtime")
 
 plt.title("(1+1)EA on LeadingOnes")
+plt.show()
+
+# Plot the boxplot
+plt.boxplot(all_runtimes, tick_labels=c_values)
+plt.xlabel("c")
+plt.ylabel("Runtime")
+plt.title("(1+1) EA on LeadingOnes - Runtime Distribution")
 plt.show()

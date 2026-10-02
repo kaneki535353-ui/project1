@@ -4,6 +4,7 @@ from rls import rls_onemax
 
 n_values=[10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
 
+all_runtimes = []
 average_runtime_nlogn=[]
 
 for n in n_values:
@@ -27,6 +28,7 @@ for n in n_values:
          "Average runtime=",average_runtime
     )
     average_runtime_nlogn.append(average_runtime)
+    all_runtimes.append(runtimes)
 
 #plot
 plt.plot(n_values, average_runtime_nlogn)
@@ -35,4 +37,12 @@ plt.xlabel("n")
 plt.ylabel("Average runtime")
 
 plt.title("Random Local Search on OneMax")
+plt.show()
+
+
+#Plot the boxplot
+plt.boxplot(all_runtimes, tick_labels=n_values)
+plt.xlabel("n")
+plt.ylabel("Runtime")
+plt.title("RLS on OneMax - Runtime Distribution")
 plt.show()

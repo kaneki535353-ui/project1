@@ -4,6 +4,7 @@ from one_plus_one_ea import one_plus_one_ea_leadingones
 
 n_values=[10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
 
+all_runtimes = []
 average_runtime_n2=[]
 
 for n in n_values:
@@ -28,6 +29,7 @@ for n in n_values:
     )
 
     average_runtime_n2.append(average_runtime)
+    all_runtimes.append(runtimes)
 
 #plot 
 plt.plot(n_values, average_runtime_n2)
@@ -36,4 +38,12 @@ plt.xlabel("n")
 plt.ylabel("Average runtime")
 
 plt.title("(1+1)EA on LeadingOnes")
+plt.show()
+
+
+#Plot the boxplot
+plt.boxplot(all_runtimes, tick_labels=n_values)
+plt.xlabel("n")
+plt.ylabel("Runtime")
+plt.title("(1+1)EA on LeadingOnes - Runtime Distribution")
 plt.show()
